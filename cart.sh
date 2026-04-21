@@ -4,14 +4,14 @@ dnf install -y nodejs
 useradd -r -s /bin/false appuser
 mkdir -p /app
 
-curl -L -o /tmp/user.zip https://raw.githubusercontent.com/raghudevopsb89/roboshop-microservices/main/artifacts/user.zip
+curl -L -o /tmp/cart.zip https://raw.githubusercontent.com/raghudevopsb89/roboshop-microservices/main/artifacts/cart.zip
 cd /app
-unzip /tmp/user.zip
+unzip /tmp/cart.zip
 npm install --production
 chown -R appuser:appuser /app
 chmod o-rwx /app -R
 
-cp user.service /etc/systemd/system/user.service
+cp cart.service /etc/systemd/system/cart.service
 systemctl daemon-reload
-systemctl enable user
-systemctl start user
+systemctl enable cart
+systemctl start cart
