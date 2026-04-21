@@ -1,6 +1,9 @@
 dnf install -y python3 python3-pip mysql8.4
+cp ratings.service /etc/systemd/system/ratings.service
+
 
 curl -L -o /tmp/ratings.zip https://raw.githubusercontent.com/raghudevopsb89/roboshop-microservices/main/artifacts/ratings.zip
+rm -rf /app
 mkdir -p /app
 cd /app
 unzip /tmp/ratings.zip
@@ -12,7 +15,6 @@ pip3 install -r /app/requirements.txt cryptography
 chown -R appuser:appuser /app
 chmod o-rwx /app -R
 
-cp ratings.service /etc/systemd/system/ratings.service
 systemctl daemon-reload
 systemctl enable ratings
 systemctl start ratings

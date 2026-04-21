@@ -1,6 +1,8 @@
 dnf install -y golang git mysql8.4
+cp catalogue.service /etc/systemd/system/catalogue.service
 
 curl -L -o /tmp/catalogue.zip https://raw.githubusercontent.com/raghudevopsb89/roboshop-microservices/main/artifacts/catalogue.zip
+rm -rf /app
 mkdir -p /app
 cd /app
 unzip /tmp/catalogue.zip
@@ -15,7 +17,6 @@ CGO_ENABLED=0 go build -o /app/catalogue .
 chown -R appuser:appuser /app
 chmod o-rwx /app -R
 
-cp catalogue.service /etc/systemd/system/catalogue.service
 systemctl daemon-reload
 systemctl enable catalogue
 systemctl start catalogue
