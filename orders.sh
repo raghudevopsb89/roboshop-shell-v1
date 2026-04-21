@@ -3,10 +3,10 @@ cp orders.service /etc/systemd/system/orders.service
 
 
 useradd -r -s /bin/false appuser
+rm -rf /app
 mkdir -p /app
 
 curl -L -o /tmp/orders.zip https://raw.githubusercontent.com/raghudevopsb89/roboshop-microservices/main/artifacts/orders.zip
-rm -rf /app
 cd /app
 unzip /tmp/orders.zip
 mvn clean package -DskipTests

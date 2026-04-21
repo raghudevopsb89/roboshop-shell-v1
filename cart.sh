@@ -4,10 +4,10 @@ cp cart.service /etc/systemd/system/cart.service
 
 
 useradd -r -s /bin/false appuser
+rm -rf /app
 mkdir -p /app
 
 curl -L -o /tmp/cart.zip https://raw.githubusercontent.com/raghudevopsb89/roboshop-microservices/main/artifacts/cart.zip
-rm -rf /app
 cd /app
 unzip /tmp/cart.zip
 npm install --production
