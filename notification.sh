@@ -15,4 +15,4 @@ chmod o-rwx /app -R
 
 systemctl daemon-reload
 systemctl enable notification
-systemctl start notification
+systemctl restart notification

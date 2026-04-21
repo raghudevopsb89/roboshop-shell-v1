@@ -17,4 +17,4 @@ chmod o-rwx /app -R
 
 systemctl daemon-reload
 systemctl enable ratings
-systemctl start ratings
+systemctl restart ratings

@@ -16,4 +16,4 @@ chmod o-rwx /app -R
 
 systemctl daemon-reload
 systemctl enable cart
-systemctl start cart
+systemctl restart cart

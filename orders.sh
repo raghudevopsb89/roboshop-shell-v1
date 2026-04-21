@@ -16,4 +16,4 @@ chmod o-rwx /app -R
 
 systemctl daemon-reload
 systemctl enable orders
-systemctl start orders
+systemctl restart orders
